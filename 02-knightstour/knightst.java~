@@ -2,13 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class ktour {
-    private char[][] board;
+    private int[][] board;
     private int maxX = 5;
     private int maxY = 5;
-    private int vsquares = 0;
-    private char knight = 'K';
-    private char space = ' ';
-    private char visited = '.';
     private boolean solved = false;
 
     public void delay(int n){
@@ -22,23 +18,28 @@ public class ktour {
 	for (int i=0; i<maxX+2; i++) {
 	    for (int j=0; j<maxY+2; j++) {
 		if (i<2 || i>=maxX || j<2 || j>=maxX) {
-		    board[i][j]=visited;
+		    board[i][j]=-1;
 		} else {
-		    board[i][j]=space;
+		    board[i][j]=0;
 		}
 	    }
 	}
     }
     
     public void print() {
+	int temp;
+	//String s = "[2J\n";
 	System.out.println("[2J\n");
 	for (int i=2;i<=maxX;i++) {
 	    if (i==maxX) {
+		//s+="\n";
 	   	System.out.printf("\n");
 	    }
 	    for (int j=2;j<maxY;j++) {
 		if (i!=maxX) {
-		    System.out.printf("|%c",board[i][j]);
+		    //s+=board[i][j];
+		    temp=board[i][j];
+		    System.out.printf("|%d",temp);
 		}
 	    }
 	}
@@ -46,15 +47,15 @@ public class ktour {
 		
 
     public void solve(int x, int y) {
-	if (board[x][y]==visited || board[x][y]==knight || solved) {
+	if (board[x][y]==-1 || solved) {
 	    return;
 	}
 	if (vsquares==maxX*maxY) {
-	    print();
+	    //print();
 	    solved = true;
 	}
 	delay(100);
-	print();
+	//print();
 	board[x][y]=knight;
 	solve(x+2,y+1);
 	solve(x+2,y-1);
@@ -65,7 +66,6 @@ public class ktour {
 	solve(x-1,y+2);
 	solve(x-1,y-2);
 	if (!solved) {
-	    board[x][y]=visited;
 	    vsquares++;
 	}
     }
