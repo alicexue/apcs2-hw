@@ -1,0 +1,25 @@
+public class select {
+    public int[] select(int[] A, int k, int l, int h) {
+	// first call is select(A,k,0,A.length-1)
+	int pivot = A[0];
+	int index = 0;
+	while (l<h) {
+	    if (A[l]<pivot) {
+		l++;
+	    } else {
+		int temp = A[l];
+		A[l]=A[h];
+		A[h]=temp;
+		h--;
+	    }
+	}
+	return A;
+    }
+} 
+
+public static void main(String[] args) {
+    select s = new select();
+    int[] A = {8, 3, 5, 2, 9, 10, 1 ,32, 43}
+    System.out.println(s.select(A,3,0,A.length-1));
+}
+	    
