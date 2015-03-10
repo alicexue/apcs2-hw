@@ -1,4 +1,4 @@
-public class select {
+public class selection {
     public int select(int[] A, int k, int l, int h) {
 	int Li=l;
 	int Hi=h;
@@ -45,7 +45,7 @@ public class select {
     }
 
     public static void main(String[] args) {
-	select s = new select();
+	selection s = new selection();
 	int[] A = {8, 3, 5, 2, 9, 10, 1, 32, 43};
 	System.out.println(s.toString(A));
 	System.out.println(s.select(A,3,0,A.length-1));

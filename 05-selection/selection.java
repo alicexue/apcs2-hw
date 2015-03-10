@@ -2,7 +2,7 @@ public class selection {
     public int select(int[] A, int k, int l, int h) {
 	int Li=l;
 	int Hi=h;
-	int pivot = A[0];
+	int pivot = A[l];
 	int temp;
 	while (Li<Hi) {
 	    if (A[Li]<pivot) {
@@ -14,24 +14,16 @@ public class selection {
 		Hi--;
 	    }
 	}
-	temp=A[Li+1];
-	A[Li+1]=pivot;
+	temp=A[Li];
+	A[Li]=pivot;
 	A[h]=temp;
        
-	System.out.println(toString(A));
-	int min=A[0];
-	for (int i=0;i<A.length;i++) {
-	    if (A[i]<min) {
-		min=A[i];
-	    }
-	}
-	
-	if (pivot==min) {
+	if (Li==k) {
 	    return A[k-1];
 	} else if (k<Li) {
 	    return select(A,k,l,Li-1);
 	} else {
-	    return select(A,k,Li-1,h);
+	    return select(A,k,Li+1,h);
 	}
     }
 
