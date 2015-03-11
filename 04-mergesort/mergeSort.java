@@ -8,7 +8,7 @@ public class mergeSort {
     public ArrayList<Integer> mergeSort (ArrayList<Integer> a) {
 	ArrayList<Integer> a1 = new ArrayList<Integer>();
 	ArrayList<Integer> a2 = new ArrayList<Integer>();
-	if (a.size()==1) {
+	if (a.size()<=1) {
 	    return a;
 	}
 	for (int i=0;i<a.size();i++) {
@@ -105,7 +105,6 @@ public class mergeSort {
 	q.add(2);
 	System.out.println(m.mergeSort(q));
 	int[] w = {6,23,2,52,3,6};
-	int[] e = {4,6};
 	System.out.println(m.toString(m.mergeSortA(w)));
     }
 }
