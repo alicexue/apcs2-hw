@@ -1,10 +1,19 @@
 public class LList {
-    private Node l=null;
-    private int length=0;
+    private Node l;
+    private int length;
+
+    public LList() {
+	l = new Node("");
+	length = 0;
+    }
+    
+    public void IndexOutOfBoundsException() {
+	System.out.println("Index Out Of Bounds");
+    }
 
     public Node get(int n) {
 	if (n<0 || n>=length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
 	} else {
 	    Node tmp=l;
 	    while (n>0) {
@@ -17,14 +26,14 @@ public class LList {
 
     public void add(int n, String s) {
 	if (n<0 || n>length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
 	} else 	if (n==0) {
 	    add(s);
 	} else {
 	    Node ns = new Node(s);
-	    Node back = find(n);
+	    Node back = get(n);
 	    ns.setNext(back);
-	    find(n-1).setNext(ns);
+	    get(n-1).setNext(ns);
 	}
 	length++;
     }
@@ -39,16 +48,21 @@ public class LList {
     }
 
     public Node remove(int n) {
-	// account for exceptions
 	if (n<0 || n>length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
+	} else {
+	    Node tmp = get(n);
+	    Node back = get(n+1);
+	    get(n-1).setNext(back);
+	    length--;
+	    return tmp;
 	}
-	Node back = find(n+1);
-	find(n-1).setNext(back);
-	length--;
     }
 	
-    
+    public int size() {
+	return length;
+    }
+
     public String toString(){
 	String s = "";
 	Node tmp;

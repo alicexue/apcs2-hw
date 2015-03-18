@@ -1,5 +1,5 @@
 import java.util.*;
-public class Driver{
+public class  Driver{
     public static void main(String[] args) {
 	Random r = new Random();
 	LList l = new LList();
@@ -7,13 +7,10 @@ public class Driver{
 	    l.add(""+i);
 	}
 	System.out.println(l);
-	System.out.println(l.get(2));
-	l.add(0,"new");
+	System.out.println(l.find(2));
+	l.insert(0,"new");
 	System.out.println(l);
-	l.add(3,"hi");
+	l.insert(3,"hi");
 	System.out.println(l);
-	l.remove(5);
-	System.out.println(l);
-	
     }
 }
