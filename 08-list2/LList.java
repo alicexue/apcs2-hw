@@ -3,11 +3,15 @@ public class LList {
     private int length;
 
     public LList() {
-	l = new Node("");
+	l = null;
 	length = 0;
     }
 
-    public String get(int n) {
+    public Node getL() {
+	return l;
+    }
+    
+    public int get(int n) {
 	if (n<0 || n>=length) {
 	    throw new IndexOutOfBoundsException();
 	} else {
@@ -20,7 +24,7 @@ public class LList {
 	}
     }
 
-    public void add(int n, String s) {
+    public void add(int n, int s) {
 	if (n<0 || n>length) {
 	    throw new IndexOutOfBoundsException();
 	} else 	if (n==0) {
@@ -35,7 +39,7 @@ public class LList {
     }
 	    
 
-    public boolean add(String s){
+    public boolean add(int s){
 	Node tmp = new Node(s);
 	tmp.setNext(l);
 	l = tmp;
@@ -43,7 +47,7 @@ public class LList {
 	return true;
     }
 
-    public String remove(int n) {
+    public int remove(int n) {
 	if (n<0 || n>length) {
 	    throw new IndexOutOfBoundsException();
 	} else {
@@ -77,5 +81,6 @@ public class LList {
 	s = s + "null";
 	return s;
     }
-		
+
+    	
 }
