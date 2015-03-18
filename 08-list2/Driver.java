@@ -8,12 +8,13 @@ public class Driver{
 	}
 	System.out.println(l);
 	System.out.println(l.get(2));
-	l.add(0,"new");
+	l.add(0,"14");
 	System.out.println(l);
-	l.add(3,"hi");
+	l.add(3,"15");
 	System.out.println(l);
 	l.remove(5);
 	System.out.println(l);
-	
+	System.out.println(l.size());
+	l.get(100);
     }
 }
