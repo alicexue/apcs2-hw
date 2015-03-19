@@ -35,8 +35,15 @@ public class Driver{
 
 	int sumL = 0;
 	start = System.currentTimeMillis();
+	/*
 	for(int i=0;i<l.size();i++){
 	    sumL += l.get(i);
+	}
+	*/
+		    
+     	Node tmp;
+	for (tmp=l.getL();tmp!=null;tmp=tmp.getNext()) {
+	    sumL+=tmp.getData();
 	}
 	elapsed = System.currentTimeMillis()-start;
 	System.out.println("LList:" + elapsed);
@@ -46,7 +53,7 @@ public class Driver{
 	for(int i=0;i<l2.size();i++){
 	    sumL2 += (int)l2.get(i);
 	}
-	elapsed =System.currentTimeMillis()-start;
+	elapsed = System.currentTimeMillis()-start;
 	System.out.println("LinkedList:" + elapsed);
     }
 }

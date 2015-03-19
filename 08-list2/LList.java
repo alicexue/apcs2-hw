@@ -47,6 +47,7 @@ public class LList {
 	return true;
     }
 
+    //removes int at position n
     /*
     public int remove(int n) {
 	if (n<0 || n>length) {
@@ -73,6 +74,23 @@ public class LList {
 	}
 	return false;
     }
+
+    // piggybacking pointers - another solution
+    /*  
+    public boolean remove(int s) {
+	Node tmp = l.getNext();
+	Node tmp2 = l;
+	while (tmp!=null) {
+	    if (tmp.getData()==n) {
+		tmp2.setNext(tmp.getNext());
+		return true;
+	    }
+	    tmp2 = tmp;
+	    tmp = tmp.getNext();
+	}
+	return false;
+    }
+    */	   
  	
     public int size() {
 	return length;
@@ -85,6 +103,11 @@ public class LList {
 	    n--;
 	}
 	return tmp;
+    }
+
+    public LLit getLLit() {
+	LLit llit = new LLit(l);
+	return llit;
     }
     
     public String toString(){
