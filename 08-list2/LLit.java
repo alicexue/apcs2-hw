@@ -9,7 +9,7 @@ public class LLit {
     }
 
     // move to the next node and return the value in the node (before the move)
-    public String next() {
+    public int next() {
 	int s = l.getData();
 	l = l.getNext();
 	return s;
