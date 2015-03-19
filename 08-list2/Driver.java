@@ -5,50 +5,40 @@ import java.lang.System;
 public class Driver{
     public static void main(String[] args) {
        	Random r = new Random();
-	/*
-	LList l = new LList();
-	for (int i=0; i < 10; i++){
-	    l.add(""+i);
-	}
-	System.out.println(l);
-	System.out.println(l.get(2));
-	l.add(0,"14");
-	System.out.println(l);
-	l.add(3,"15");
-	System.out.println(l);
-	l.remove(5);
-	System.out.println(l);
-	System.out.println(l.size());
-	//l.get(100);
-	*/
-	int rnd = r.nextInt();
-	ArrayList<Integer> a = new ArrayList<Integer>();
-	for (int i=0;i<10;i++) {
-	    a.add(rnd);
-	}
-	long t = System.currentTimeMillis();
-	System.out.println(t);
+	
 	long start, elapsed;
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	LList l = new LList();
+	LinkedList l2 = new LinkedList();
+	for (int i=0;i<10000;i++) {
+	    a.add(r.nextInt(10));
+	    l.add(r.nextInt(10));
+	    l2.add(r.nextInt(10));
+	}
+
+
+	int sumA = 0;
 	start = System.currentTimeMillis();
-	int sumA=0;
-	for (int i=0;i<10;i++) {
-	    sumA+=i;
+	for (int i=0;i<a.size();i++){
+	    sumA += a.get(i);
 	}
 	elapsed = System.currentTimeMillis()-start;
+	System.out.println("ArrayList:" + elapsed);
 
-
-	LList l2 = new LList();
-	for (int i=0; i < 10; i++){
-	    l2.add(rnd);
-	}
 	int sumL = 0;
-	Node tmp;
-	t = System.currentTimeMillis();
-	System.out.println(t);
 	start = System.currentTimeMillis();
-	for (tmp = l2.getL(); tmp!= null; tmp=tmp.getNext()) {
-	    sumL+=tmp.getData();
+	for(int i=0;i<l.size();i++){
+	    sumL += l.get(i);
 	}
 	elapsed = System.currentTimeMillis()-start;
+	System.out.println("LList:" + elapsed);
+
+	int sumL2 = 0;
+	start = System.currentTimeMillis();
+	for(int i=0;i<l2.size();i++){
+	    sumL2 += (int)l2.get(i);
+	}
+	elapsed =System.currentTimeMillis()-start;
+	System.out.println("LinkedList:" + elapsed);
     }
 }

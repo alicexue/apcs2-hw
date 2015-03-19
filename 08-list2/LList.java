@@ -47,6 +47,7 @@ public class LList {
 	return true;
     }
 
+    /*
     public int remove(int n) {
 	if (n<0 || n>length) {
 	    throw new IndexOutOfBoundsException();
@@ -58,7 +59,21 @@ public class LList {
 	    return tmp.getData();
 	}
     }
-	
+    */
+
+    public boolean remove(int s) {
+	Node tmp = l;
+	for (int i=0;i<length;i++) {
+	    if (tmp.getNext().getData()==s) {
+		tmp.setNext(tmp.getNext());
+		length--;
+		return true;
+	    }
+	    tmp = tmp.getNext();
+	}
+	return false;
+    }
+ 	
     public int size() {
 	return length;
     }

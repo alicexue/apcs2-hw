@@ -1,23 +1,32 @@
 public class LList {
-    private Node l=null;
-    private int length=0;
+    private Node l;
+    private int length;
 
-    public Node get(int n) {
+    public LList() {
+	l = null;
+	length = 0;
+    }
+
+    public Node getL() {
+	return l;
+    }
+    
+    public int get(int n) {
 	if (n<0 || n>=length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
 	} else {
 	    Node tmp=l;
 	    while (n>0) {
 		tmp = tmp.getNext();
 		n--;
 	    }
-	    return tmp;
+	    return tmp.getData();
 	}
     }
 
-    public void add(int n, String s) {
+    public void add(int n, int s) {
 	if (n<0 || n>length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
 	} else 	if (n==0) {
 	    add(s);
 	} else {
@@ -30,7 +39,7 @@ public class LList {
     }
 	    
 
-    public boolean add(String s){
+    public boolean add(int s){
 	Node tmp = new Node(s);
 	tmp.setNext(l);
 	l = tmp;
@@ -38,16 +47,30 @@ public class LList {
 	return true;
     }
 
-    public Node remove(int n) {
-	// account for exceptions
+    public int remove(int n) {
 	if (n<0 || n>length) {
-	    throw IndexOutOfBoundsException;
+	    throw new IndexOutOfBoundsException();
+	} else {
+	    Node tmp = find(n);
+	    Node back = find(n+1);
+	    find(n-1).setNext(back);
+	    length--;
+	    return tmp.getData();
 	}
-	Node back = find(n+1);
-	find(n-1).setNext(back);
-	length--;
     }
 	
+    public int size() {
+	return length;
+    }
+
+    public Node find(int n) {
+	Node tmp=l;
+	while (n>0) {
+	    tmp = tmp.getNext();
+	    n--;
+	}
+	return tmp;
+    }
     
     public String toString(){
 	String s = "";
@@ -58,5 +81,6 @@ public class LList {
 	s = s + "null";
 	return s;
     }
-		
+
+    	
 }
