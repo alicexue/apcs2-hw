@@ -65,7 +65,7 @@ public class LList {
 	Node tmp = l;
 	for (int i=0;i<length;i++) {
 	    if (tmp.getNext().getData()==s) {
-		tmp.setNext(tmp.getNext());
+		tmp.setNext(tmp.getNext().getNext());
 		length--;
 		return true;
 	    }

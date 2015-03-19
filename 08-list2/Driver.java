@@ -4,6 +4,14 @@ import java.lang.System;
 
 public class Driver{
     public static void main(String[] args) {
+	LList q = new LList();
+	for (int i=0;i<10;i++) {
+	    q.add(i);
+	}
+	System.out.println(q);
+	System.out.println(q.remove(3));
+	System.out.println(q);
+	
        	Random r = new Random();
 	
 	long start, elapsed;
