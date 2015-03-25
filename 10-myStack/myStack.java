@@ -16,6 +16,7 @@ public class myStack<E>{
 
     public E pop(){
         // remove and return the top item from the stack
+	// make sure to check if the stack is empty - throw an error if so 
 	E tmp = thing.getData();
 	thing = thing.getNext();
 	return tmp;
