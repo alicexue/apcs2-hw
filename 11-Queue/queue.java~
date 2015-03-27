@@ -1,10 +1,7 @@
 public class queue<E> {
     private Node<E> l;
-    private Node<E> last;
     public queue() {
 	l = new Node();
-	last = new Node<E>();
-	l.setNext(last);
     }
 
     public Node<E> getLast(){
@@ -15,32 +12,24 @@ public class queue<E> {
 	    }
 	    tmp=tmp.getNext();
 	}
-	return tmp;
     }
 
     public void enqueue(E data) {
-	Node<E> n = new Node<E>(data);
-	if (l.getData()==null) {
-	    n.setNext(l);
-	    l=n;
-	} else {
-	    last.setNext(n);
-	}
-	last=n;
+	getLast().setNext(data);
     }
 
-    public E head() {
+    public E front() {
 	return l.getData();
     }
 
     public E dequeue() {
-	E result = head();
+	E result = front();
 	l = l.getNext();
 	return result;
     }
 
     public boolean empty() {
-	return l.getData()==null;
+	return l==null;
     }
 
     public int size() {
@@ -53,15 +42,6 @@ public class queue<E> {
 	return count;
     }
 
-    public String toString(){
-	String s = "";
-	Node<E> tmp;
-	for (tmp=l; tmp!=null ; tmp=tmp.getNext()){
-	    s = s + tmp + " --> ";
-	}
-	s = s + "null";
-	return s;
-    }
 }
 	
 
