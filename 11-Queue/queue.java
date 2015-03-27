@@ -7,17 +7,6 @@ public class queue<E> {
 	l.setNext(last);
     }
 
-    public Node<E> getLast(){
-	Node<E> tmp = l;
-	while (tmp!=null) {
-	    if (tmp.getNext()==null) {
-		return tmp;
-	    }
-	    tmp=tmp.getNext();
-	}
-	return tmp;
-    }
-
     public void enqueue(E data) {
 	Node<E> n = new Node<E>(data);
 	if (l.getData()==null) {
