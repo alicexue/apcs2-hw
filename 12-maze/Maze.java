@@ -71,8 +71,8 @@ public class Maze
 	q.enqueue(makeNode(x-1,y));
 	q.enqueue(makeNode(x,y+1));
 	q.enqueue(makeNode(x,y-1));
-	while (!empty()) {
-	    if (q.getData()==exit) {
+	while (!q.empty()) {
+	    if (q.head()==exit) {
 		return;
 	    }
 	    q.dequeue();

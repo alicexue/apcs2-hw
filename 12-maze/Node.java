@@ -1,5 +1,5 @@
 public class Node<E>{
-    private E data;
+    private E data;    
     private Node<E> next;
     private int xcor,ycor;
 
@@ -12,6 +12,7 @@ public class Node<E>{
 	next = null;
     }
     public Node(int x, int y) {
+	// data = 
 	xcor = x;
 	ycor = y;
 	next = null;

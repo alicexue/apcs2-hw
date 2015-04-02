@@ -41,7 +41,7 @@ public class queue<E> {
 	}
 	return count;
     }
-
+    
     public String toString(){
 	String s = "";
 	Node<E> tmp;
