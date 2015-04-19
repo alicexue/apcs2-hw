@@ -1,6 +1,6 @@
 public class Node {
     private int x,y;
-    private Node prev;
+    private Node prev, next;
     private double prio;
 		
     public Node(int x, int y){

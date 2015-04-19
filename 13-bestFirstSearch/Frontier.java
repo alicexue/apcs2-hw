@@ -19,9 +19,10 @@ public class Frontier {
 	if (l.isEmpty()) {
 	    l.add(n);
 	} else {
-	    for (Node tmp = l.getPrev(); tmp! = null; tmp.getPrev()) {
-		if (n.getPrio()<tmp.getPrio()) {
-		    tmp.setPrio(n);
+	    int i = 0;
+	    while (i < l.size()) {
+		if (n.getPrio()<l.get(i).getPrio()) {
+		    l.get(i).setPrev(n);
 		} else {
 		    l.add(n);
 		}
