@@ -1,0 +1,6 @@
+public class Driver {
+    Tree t = new Tree();
+    t.insert(5);
+    t.insert(2);
+   
+}

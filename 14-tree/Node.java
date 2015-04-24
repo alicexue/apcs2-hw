@@ -20,8 +20,15 @@ public class Node {
 	left = n;
     }
 
+    public Node getLeft() {
+	return left;
+    }
+
     public void setRight(Node n) {
 	right = n;
     }
 
+    public Node getRight() {
+	return right;
+    }
 }
