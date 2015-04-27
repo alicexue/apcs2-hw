@@ -1,4 +1,4 @@
-public class Tree {    
+public class BST {    
     private Node T;
 
     public Tree() {
@@ -46,7 +46,5 @@ public class Tree {
 	else
 	    return 0;
     }
-
-    //public void rinsert(int a) {
 
 }
