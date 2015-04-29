@@ -1,16 +1,12 @@
 public class BST {    
     private Node T;
 
-    public Tree() {
-	T = null;
-    }
-
-    public Node search (Node n, int i) {
+    public Node search(Node n, int i) {
 	if (n==null || n.getData()==i) {
 	    return n;
 	} else if (i<n.getData()) {
 	    return search(n.getLeft(),i);
-	} else (i>n.getData()) {
+	} else {
 	    return search(n.getRight(),i);
 	}
     }
@@ -20,34 +16,40 @@ public class BST {
 	if (n==null) {
 	    return "NOT FOUND";
 	} else {
-	    return n.toString();
+	    return ""+n.getData();
 	}
     }
     
-    public void insert(int a) {
-	if (T==null)
-	    T = new Node(a);
-	else {
-	    Node tmp = T;
-	    while (T!=null) {
-		tmp = T;
-		if (T.getData()>a) 
-		    T = T.getRight();
-		else if (T.getData()<0) 
-		    T = T.getLeft();
-		else
-		    return;	       
-	    }
-	    if (a<tmp.getData()) 
-		tmp.setLeft(new Node(a));
-	    else 
-		tmp.setRight(new Node(a));
+    public void insert(int i) {
+	Node n = new Node(i);
+	Node t2=null;
+	Node t = T;
+	if (T==null){
+	    T=n;
+	    return;
 	}
+								
+	while (t!=null){
+	    t2 = t;
+	    if (t.getData()==i)
+		return;
+	    else if (t.getData() < i)
+		t=t.getRight();
+	    else if (t.getData() > i)
+		t=t.getLeft();
+	    else
+		return;
+	}
+				
+	if (i>t2.getData())
+	    t2.setRight(n);
+	else
+	    t2.setLeft(n);
     }
 
+    /*
     public Node search(int i) {
 	while (T!=null) {
-	    int c = compareTo(i);
 	    if (T.getData()>i) 
 		T = T.getRight();
 	    else if (T.getData()<i)
@@ -57,14 +59,35 @@ public class BST {
 	}
 	return null;
     }
-
+    */
+    
     public String traverse(Node T) {
-	String s = "";
 	if (T==null) {
-	    return s;
+	    return "";
 	} else {
-	    s = s + T.getData + " (" traverse(T.getLeft()) + ", " + traverse(T.getRight) + ")");
+	    return traverse(T.getLeft()) + " " + T.getData() + " "  + traverse(T.getRight()) + " ";
 	}
     }
 
+    public void remove(int i) {
+	Node t = T;
+	Node t2;
+	while (t.getData()!=i) {
+	    t2 = t;
+	    int a = t.getData();
+	    if (i<a) 
+		t = t.getLeft();
+	    else
+		t = t.getRight();
+	}
+	if (t.getLeft()==null && t.getRight()==null) {
+	    if (t2.getLeft()==t)
+		t2.getLeft()==null;
+	    else
+		t2.getRight()==null;
+	}
+	//if (t.getLeft()==null || t.getRight()==null) {
+	    
+    }
+    
 }
