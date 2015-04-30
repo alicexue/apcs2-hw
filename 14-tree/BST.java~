@@ -106,7 +106,6 @@ public class BST {
 		l = l.getRight();
 	    }
 	    t = l;
-	    remove(l.getData());
 	}
     }
 
