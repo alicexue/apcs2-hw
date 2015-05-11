@@ -1,0 +1,34 @@
+public class binarytree {
+
+    private Node t;
+
+    public int maxVal() {
+	int m = t.getData();
+	Node tmp = t;
+	while (tmp!=null) {
+	    m=tmp.getRight().getData();
+	}
+	return m;
+    }
+
+    public int height(Node t, ArrayList<Integer> a) {
+	Node tmp = t;
+	int c = 0;
+	if (t==0) {
+	    return 0;
+	} else {
+	    
+	
+
+    }
+
+    public int leaf2leaf() {
+	
+    }
+
+    public void splitdupes() {
+	
+    }
+
+}
+    
