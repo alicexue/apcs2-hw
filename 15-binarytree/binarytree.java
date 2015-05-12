@@ -17,11 +17,10 @@ public class binarytree {
 	if (t==null) {
 	    return 0;
 	} else {
-	    h++;
 	    if (height(t.getLeft())>height(t.getRight())) {
-		return height(t.getLeft());
+		return h + height(t.getLeft());
 	    } else {
-		return height(t.getRight());
+		return h + height(t.getRight());
 	    }
 	}	
     }
