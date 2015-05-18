@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class heap {
+
+    int[] h;
+    int hlength;
+
+    public heap(int[] a) {
+	h = a;
+	hlength = a.length;
+    }
+
+    public void pushdown() {
+	int pos = 1;
+	while (pos < h.length) {
+	    if (h[pos*2-1]<h[pos-1]) {
+		h[pos-1] = h[pos*2-1];
+		pos = pos*2-1;
+	    } else {
+		h[pos-1] = h[pos*2];
+		pos = pos*2;
+	    }
+	} 
+    }
+
+    public void removemin() {
+	h[0] = h[hlength-1];
+	h[hlength-1] = 0;
+	pushdown();
+	hlength--;
+    }
+}
